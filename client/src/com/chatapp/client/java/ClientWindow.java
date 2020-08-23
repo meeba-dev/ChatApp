@@ -51,6 +51,8 @@ public class ClientWindow extends Application implements TCPConnectionListener {
                 saveLogs(msg);
             } catch (NullPointerException e) {
                 System.out.println("Empty message...");
+            } catch (FileNotFoundException e) {
+                System.out.println("File is not found...");
             } catch (IOException e) {
                 e.printStackTrace();
             }
