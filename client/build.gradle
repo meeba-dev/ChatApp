@@ -1,0 +1,5 @@
+mainClassName = 'com.chatapp.client.ClientWindow'
+
+project.dependencies {
+    compile project(':network')
+}

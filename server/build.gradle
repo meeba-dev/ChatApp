@@ -1,0 +1,3 @@
+project.dependencies {
+    compile(project(':network'))
+}
