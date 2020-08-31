@@ -49,8 +49,8 @@ public class TCPConnection {
             eventListener.onException(TCPConnection.this, e);
             disconnect();
         }
-
     }
+
     public synchronized void disconnect() {
         rxThread.interrupt();
         try {
@@ -58,7 +58,6 @@ public class TCPConnection {
         } catch (IOException e) {
             eventListener.onException(TCPConnection.this, e);
         }
-
     }
 
     @Override

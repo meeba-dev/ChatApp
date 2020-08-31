@@ -1,5 +1,16 @@
+plugins {
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+dependencies {
+    implementation project(':server')
+    compile project(':network')
+}
+
 mainClassName = 'com.chatapp.client.ClientWindow'
 
-project.dependencies {
-    compile project(':network')
+javafx {
+    version = "11.0.2"
+    modules = [ 'javafx.controls' ]
 }

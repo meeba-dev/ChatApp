@@ -1,3 +1,5 @@
+rootProject.name = 'ChatApp'
+
 include 'server'
 include 'client'
 include 'network'

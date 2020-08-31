@@ -44,6 +44,7 @@ public class ChatServer implements TCPConnectionListener {
     public synchronized void onDisconnect(TCPConnection tcpConnection) {
         connections.remove(tcpConnection);
         sendToAllConnections("Client disconnected: " + tcpConnection);
+        System.exit(0);
     }
 
     @Override

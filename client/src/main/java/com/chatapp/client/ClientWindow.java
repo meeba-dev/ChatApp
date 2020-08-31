@@ -11,10 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.PrintStream;
+import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -80,6 +77,11 @@ public class ClientWindow extends Application implements TCPConnectionListener {
             e.printStackTrace();
         }
 
+        primaryStage.setOnCloseRequest(windowEvent -> {
+            connection.disconnect();
+            System.exit(0);
+        });
+
     }
 
     @Override
@@ -109,7 +111,10 @@ public class ClientWindow extends Application implements TCPConnectionListener {
 
     private synchronized void saveLogs(String msg) throws IOException {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
-        String path = "./client/src/main/resources/logs.txt";
+        // path for regular launch
+        //String path = "./client/src/main/resources/logs.txt";
+        // path for gradle launch
+        String path = "src/main/resources/logs.txt";
         PrintStream printStream = new PrintStream(new FileOutputStream(path, true));
         printStream.append(sdf.format(new Date()) + " " + nickname.getText() + ": " + msg + '\n');
         printStream.close();

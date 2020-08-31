@@ -1,3 +1,10 @@
-project.dependencies {
-    compile(project(':network'))
+plugins {
+    id 'java'
+    id 'application'
 }
+
+dependencies {
+    compile project(':network')
+}
+
+mainClassName = 'com.chatapp.server.ChatServer'
